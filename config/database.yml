@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 30
+  checkout_timeout: 300
+  reconnect: true
+  username: <%= ENV['DATABASE_USER'] %> # defaults to your system's user
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host:     <%= ENV['DATABASE_HOST'] %> # defaults to empty and uses unix sockets
+  port:     <%= ENV.fetch('DATABASE_PORT') { "5432" } %>
+  url:      <%= ENV['DATABASE_URL'] %>
+
+
+development:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') { 'cartaz_development' } %>
+
+test:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') { 'cartaz_test' } %>
