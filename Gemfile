@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'acts_as_paranoid'
 gem 'similar_text'
+gem 'webpacker', '~> 4.x'
+gem 'foreman'
+gem 'active_model_serializers'
