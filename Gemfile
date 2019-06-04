@@ -68,3 +68,10 @@ gem 'similar_text'
 gem 'webpacker', '~> 4.x'
 gem 'foreman'
 gem 'active_model_serializers'
+
+gem 'graphql'
+gem 'graphiql-rails', group: :development
+
+gem 'api', path: 'api'
+
+gem 'will_paginate'
