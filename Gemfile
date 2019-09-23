@@ -66,11 +66,13 @@ gem "devise", ">= 4.6.0"
 gem 'acts_as_paranoid'
 gem 'similar_text'
 gem 'webpacker', '~> 4.x'
-gem 'foreman'
 gem 'active_model_serializers'
 
 gem 'graphql'
-gem 'graphiql-rails', group: :development
+group :development, :staging do
+  gem 'graphiql-rails'
+end
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'api', path: 'api'
 

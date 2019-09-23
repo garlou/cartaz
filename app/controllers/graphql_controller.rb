@@ -1,5 +1,12 @@
 class GraphqlController < ApplicationController
   protect_from_forgery with: :null_session
+  before_action :authenticate_through_api_client
+
+  def authenticate_through_api_client
+    authenticate_or_request_with_http_token do |token,other_options|
+      token.eql?(ENV['GQL_ACCESS_TOKEN'])
+    end
+  end
 
   def execute
     variables = ensure_hash(params[:variables])

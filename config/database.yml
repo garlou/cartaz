@@ -8,14 +8,17 @@ default: &default
   reconnect: true
   username: <%= ENV['DATABASE_USER'] %> # defaults to your system's user
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  host:     <%= ENV['DATABASE_HOST'] %> # defaults to empty and uses unix sockets
-  port:     <%= ENV.fetch('DATABASE_PORT') { "5432" } %>
-  url:      <%= ENV['DATABASE_URL'] %>
-
+  host: <%= ENV['DATABASE_HOST'] %> # defaults to empty and uses unix sockets
+  port: <%= ENV.fetch('DATABASE_PORT') { "5432" } %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 development:
   <<: *default
   database: <%= ENV.fetch('DATABASE_NAME') { 'cartaz_development' } %>
+
+staging:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') { 'cartaz_staging' } %>
 
 test:
   <<: *default
